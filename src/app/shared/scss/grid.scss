@@ -1,0 +1,41 @@
+@import "breakpoints";
+
+
+@mixin matrix-grid-container($colsNumber, $colsSpace) {
+  $flexBasisPercentage: calc(#{100% / $colsNumber} - #{($colsSpace * ($colsNumber - 1)) / $colsNumber});
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  > * {
+    flex-basis: $flexBasisPercentage;
+    max-width: $flexBasisPercentage;
+    margin-bottom: $colsSpace;
+    &:not(:nth-child(#{$colsNumber}n)) {
+      margin-right: $colsSpace;
+    }
+    &:nth-child(#{$colsNumber}n) {
+      margin-right: 0;
+    }
+  }
+}
+
+@mixin matrix-grid() {
+  .matrix-grid {
+    @include matrix-grid-container(1, 5px);
+    flex-wrap: wrap;
+    padding-bottom: 5px;
+
+    @include media-breakpoint('gt-xs') {
+      @include matrix-grid-container(2, 5px);
+    }
+
+    @include media-breakpoint('gt-sm') {
+      @include matrix-grid-container(3, 5px);
+    }
+
+    @include media-breakpoint('gt-md') {
+      @include matrix-grid-container(4, 5px);
+    }
+  }
+}

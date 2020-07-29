@@ -1,0 +1,31 @@
+<mat-card *ngIf="note; else newNote" class="card" (click)="matCardClickEmitted.emit(note)">
+  <mat-card-header>
+    <mat-card-title>
+      <div class="card-title">
+        <span>{{note.authorName}}</span>
+        <span><mat-icon (click)="deleteCardClickEmitted.emit(note.id); $event.stopPropagation()">delete</mat-icon></span>
+      </div>
+    </mat-card-title>
+    <mat-card-subtitle>{{note.date}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="content">
+    <span>{{note.content | matrixEllipsis: 200}}</span>
+  </mat-card-content>
+</mat-card>
+
+<ng-template #newNote>
+  <mat-card class="card" (click)="newNoteClickEmitted.emit()">
+    <mat-card-header>
+      <mat-card-title>
+        <div class="card-title">
+          <span>Add new note</span>
+        </div>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="card-header-add-new">
+      <span class="add-new">
+        <mat-icon>add</mat-icon>
+      </span>
+    </mat-card-content>
+  </mat-card>
+</ng-template>

@@ -1,0 +1,32 @@
+.card {
+  box-shadow: 10px 14px 20px 0 #dcd7d3;
+  cursor: pointer;
+  border: 1px solid #dcd7d3;
+  margin: 30px;
+  height: 220px;
+
+  &:hover {
+    background-color: aliceblue;
+  }
+}
+
+.content {
+  height: 150px;
+}
+
+
+.add-new {
+  border: 1px solid;
+  height: 50%;
+  width: 50%;
+}
+
+.card-header-add-new {
+  height: 80%;
+}
+
+.card-header-add-new, .add-new {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

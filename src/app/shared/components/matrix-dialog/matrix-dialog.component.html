@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="modalForm">
+    <mat-form-field *ngIf="data.isNewNote" appearance="outline" class="edit-text-box">
+      <mat-label>Author</mat-label>
+      <input matInput formControlName="authorName">
+    </mat-form-field>
+
+  <mat-form-field appearance="outline" class="edit-text-box">
+    <mat-label>Content</mat-label>
+    <textarea matInput
+              formControlName="content"
+              cdkTextareaAutosize
+              cdkAutosizeMinRows="1"
+              cdkAutosizeMaxRows="50"></textarea>
+  </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>No Thanks</button>
+  <button [disabled]="!modalForm.valid" mat-button [mat-dialog-close]="formValues">Ok</button>
+</div>

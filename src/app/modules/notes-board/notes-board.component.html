@@ -1,0 +1,12 @@
+<div class="header">
+  <button mat-raised-button (click)="logout()">Logout</button>
+</div>
+<div class="title"><h1>Welcome to post board</h1></div>
+
+<section class="matrix-grid">
+  <app-matrix-card [note]="null" (newNoteClickEmitted)="openNewNoteDialog()"></app-matrix-card>
+  <app-matrix-card *ngFor="let note of notes"
+                   [note]="note"
+                   (deleteCardClickEmitted)="openConfirmationDialog($event)"
+                   (matCardClickEmitted)="openEditDialog($event)"></app-matrix-card>
+</section>

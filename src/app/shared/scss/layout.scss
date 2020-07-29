@@ -1,0 +1,24 @@
+.header {
+  justify-content: flex-end;
+  button {
+    margin: 10px;
+  }
+}
+
+.title {
+  justify-content: center;
+}
+
+.card-title {
+  justify-content: space-between;
+  width: 100%;
+}
+
+.title, .card-title, .header {
+  display: flex;
+}
+
+
+.mat-card-header-text {
+  width: 100%;
+}
